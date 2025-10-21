@@ -1,0 +1,22 @@
+[build]
+  command = "pnpm run build"
+  publish = "out"
+  environment = { NODE_VERSION = "18", PNPM_VERSION = "8" }
+
+[functions]
+  directory = "functions"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[template.environment]
+  NEXT_PUBLIC_BASE_URL = "Base URL for your application"
+  NEXT_PUBLIC_API_URL = "API URL for your application"
+  DB_USER = "Database user"
+  DB_HOST = "Database host"
+  DB_NAME = "Database name"
+  DB_PASSWORD = "Database password"
+  DB_PORT = "Database port (default 5432)"
+  DB_SSL = "Use SSL for database connection (true/false)"

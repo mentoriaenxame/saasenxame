@@ -171,6 +171,48 @@ This command attempts to connect to the database with credentials from `.env.loc
 
 This application can be deployed to platforms like Vercel, Netlify, or any hosting service that supports Next.js applications. Make sure your production environment has access to a PostgreSQL instance.
 
+### Netlify Deployment
+
+1. Push your code to a Git repository (GitHub, GitLab, or Bitbucket)
+2. Connect your repository to Netlify
+3. In the Netlify build settings, set:
+   - Build command: `pnpm run build`
+   - Publish directory: `out`
+4. Add environment variables in Netlify:
+   - Go to Site settings > Environment variables
+   - Add the following variables:
+
+```
+NEXT_PUBLIC_BASE_URL=https://yourdomain.netlify.app
+NEXT_PUBLIC_API_URL=https://yourdomain.netlify.app/api
+DB_USER=your_postgres_user
+DB_HOST=your_postgres_host
+DB_NAME=your_postgres_db_name
+DB_PASSWORD=your_postgres_password
+DB_PORT=5432
+DB_SSL=true
+```
+
+### Environment Variables for Production
+
+Create a `.env` file with your production settings or configure them in your deployment platform (Vercel, Netlify, etc.):
+
+```
+# Next.js Configuration (adjust to your domain)
+NEXT_PUBLIC_BASE_URL=https://yourdomain.com
+NEXT_PUBLIC_API_URL=https://yourdomain.com/api
+
+# PostgreSQL Database Configuration
+DB_USER=your_database_user
+DB_HOST=your_database_host
+DB_NAME=your_database_name
+DB_PASSWORD=your_database_password
+DB_PORT=5432
+
+# SSL Configuration for remote database connections
+DB_SSL=true
+```
+
 ## 🤝 Contributing
 
 1. Fork the project
