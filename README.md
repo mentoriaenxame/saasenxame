@@ -175,9 +175,9 @@ This application can be deployed to platforms like Vercel, Netlify, or any hosti
 
 1. Push your code to a Git repository (GitHub, GitLab, or Bitbucket)
 2. Connect your repository to Netlify
-3. In the Netlify build settings, set:
+3. The build settings will be automatically detected from `netlify.toml`:
    - Build command: `pnpm run build`
-   - Publish directory: `out`
+   - The Netlify Next.js plugin will be automatically used
 4. Add environment variables in Netlify:
    - Go to Site settings > Environment variables
    - Add the following variables:
@@ -192,6 +192,8 @@ DB_PASSWORD=your_postgres_password
 DB_PORT=5432
 DB_SSL=true
 ```
+
+**Important**: This application uses server-side database connections and requires the Netlify Next.js plugin to run properly. Make sure the plugin is enabled in your Netlify site settings.
 
 ### Environment Variables for Production
 
