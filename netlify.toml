@@ -1,13 +1,12 @@
 [build]
   command = "pnpm run build"
-  publish = ".next"
   environment = { NODE_VERSION = "18", PNPM_VERSION = "8" }
-
-[plugins]
-  - package = "@netlify/plugin-nextjs"
 
 [functions]
   directory = "functions"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 [template.environment]
   NEXT_PUBLIC_BASE_URL = "Base URL for your application"
